@@ -2,7 +2,7 @@
   "name": "Weather Forecasting App",
   "short_name": "Weather",
   "description": "Check current weather and forecasts for your city.",
-  "start_url": "./index.html",
+  "start_url":"./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f0f7ff",

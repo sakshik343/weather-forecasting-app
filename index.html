@@ -78,5 +78,13 @@
  
     <footer>Weather data: Open-Meteo · Forecasts are estimates and may change.</footer>
   </main>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js");
+  });
+}
+</script>
+
 </body>
 </html>

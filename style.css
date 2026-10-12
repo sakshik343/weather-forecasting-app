@@ -1,0 +1,88 @@
+* { box-sizing: border-box; }
+:root {
+  --ink: #14243a;
+  --muted: #6a7b90;
+  --blue: #2463eb;
+  --line: #e2eaf3;
+  --panel: #ffffff;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(145deg, #eaf4ff 0%, #f6f9ff 52%, #e9f8f7 100%);
+  padding: 32px 16px;
+}
+.app {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  background: rgba(255,255,255,.88);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 26px;
+  padding: clamp(20px, 4vw, 42px);
+  box-shadow: 0 24px 70px rgba(38, 75, 120, .12);
+}
+.header, .location-row, .section-heading {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+}
+.eyebrow { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: 2px; margin: 0 0 8px; }
+h1 { font-size: clamp(28px, 5vw, 42px); margin: 0; letter-spacing: -1.5px; }
+.subtitle, .muted { color: var(--muted); }
+.subtitle { margin: 10px 0 0; }
+.weather-mark { font-size: 54px; background: #eff6ff; border-radius: 22px; padding: 12px; }
+.search { display: flex; gap: 10px; margin: 28px 0 8px; }
+.search input {
+  flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 14px;
+  padding: 15px 16px; font-size: 16px; background: white; outline: none;
+}
+.search input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px #2463eb20; }
+button { border: 0; border-radius: 14px; padding: 0 22px; background: var(--blue); color: white; font-size: 15px; font-weight: 700; cursor: pointer; }
+button:disabled { opacity: .6; cursor: wait; }
+.status { min-height: 22px; color: var(--muted); font-size: 14px; }
+.status.error { color: #b42318; }
+.hidden { display: none !important; }
+.location-row { margin: 24px 0 18px; }
+.location-row h2 { margin: 0; font-size: 25px; }
+.location-row .muted { margin: 7px 0 0; font-size: 13px; }
+.condition-icon { font-size: 48px; }
+.current-card {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 22px; padding: 26px;
+  border-radius: 22px; color: white;
+  background: linear-gradient(125deg, #2463eb, #438be9 65%, #5cb8d6);
+}
+.condition-text { margin: 0 0 4px; font-size: 16px; }
+.temperature { margin: 0; font-size: clamp(48px, 8vw, 68px); font-weight: 800; letter-spacing: -3px; }
+.current-card .muted { color: #e5efff; margin-bottom: 0; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: center; }
+.stat { background: #ffffff20; border: 1px solid #ffffff2e; border-radius: 14px; padding: 13px; }
+.stat span, .stat strong { display: block; }
+.stat span { font-size: 12px; color: #e5efff; margin-bottom: 7px; }
+.stat strong { font-size: 18px; }
+.section { margin-top: 34px; }
+.section-heading { margin-bottom: 14px; }
+.section-heading h2 { margin: 0; font-size: 20px; }
+.section-heading span { color: var(--muted); font-size: 13px; }
+.hourly-list { display: grid; grid-template-columns: repeat(6, minmax(100px, 1fr)); gap: 10px; overflow-x: auto; padding-bottom: 8px; }
+.hour-card { min-width: 100px; text-align: center; background: #f5f8fc; border: 1px solid var(--line); border-radius: 16px; padding: 15px 10px; }
+.hour-card .time { color: var(--muted); font-size: 12px; }
+.hour-card .icon { font-size: 24px; margin: 9px 0; }
+.hour-card .temp { font-size: 20px; font-weight: 800; }
+.hour-card .rain { color: var(--blue); font-size: 12px; margin-top: 8px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 15px; }
+table { width: 100%; border-collapse: collapse; min-width: 550px; background: white; }
+th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); font-size: 13px; }
+th { color: var(--muted); background: #f5f8fc; font-weight: 700; }
+tbody tr:last-child td { border-bottom: 0; }
+footer { margin-top: 32px; text-align: center; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 650px) {
+  body { padding: 12px 8px; }
+  .app { border-radius: 18px; padding: 18px 14px; }
+  .weather-mark { font-size: 38px; padding: 8px; }
+  .current-card { grid-template-columns: 1fr; padding: 20px; }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .stat { padding: 10px; }
+  .stat strong { font-size: 14px; }
+  .search button { padding: 0 15px; }
+}

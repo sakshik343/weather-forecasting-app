@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Forecasting App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#2563eb">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">LIVE WEATHER</p>
+        <h1>Weather Forecast</h1>
+        <p class="subtitle">Current conditions and the week ahead</p>
+      </div>
+      <div class="weather-mark" aria-hidden="true">☀️</div>
+    </header>
+ 
+    <form id="search-form" class="search">
+      <label class="sr-only" for="city-input">City name</label>
+      <input id="city-input" type="text" value="Pune"
+             placeholder="Enter a city, e.g. Mumbai" autocomplete="off" />
+      <button id="search-button" type="submit">Search</button>
+    </form>
+ 
+    <p id="status" class="status" role="status">Enter a city to see its weather.</p>
+ 
+    <section id="weather-content" class="hidden" aria-live="polite">
+      <div class="location-row">
+        <div>
+          <p class="eyebrow">YOUR LOCATION</p>
+          <h2 id="location-name">—</h2>
+          <p id="updated-time" class="muted">—</p>
+        </div>
+        <div id="condition-icon" class="condition-icon" aria-hidden="true">🌤️</div>
+      </div>
+ 
+      <section class="current-card">
+        <div>
+          <p id="current-condition" class="condition-text">—</p>
+          <p id="current-temp" class="temperature">—°C</p>
+          <p id="feels-like" class="muted">Feels like —°C</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>Humidity</span><strong id="humidity">—%</strong></div>
+          <div class="stat"><span>Wind speed</span><strong id="wind">— km/h</strong></div>
+          <div class="stat"><span>Precipitation</span><strong id="precipitation">— mm</strong></div>
+        </div>
+      </section>
+ 
+      <section class="section">
+        <div class="section-heading">
+          <h2>Hourly forecast</h2>
+          <span>Next 24 hours</span>
+        </div>
+        <div id="hourly-list" class="hourly-list"></div>
+      </section>
+ 
+      <section class="section">
+        <div class="section-heading">
+          <h2>7-day forecast</h2>
+          <span>Upcoming days</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Conditions</th><th>Low</th><th>High</th><th>Rain chance</th></tr>
+            </thead>
+            <tbody id="daily-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+ 
+    <footer>Weather data: Open-Meteo · Forecasts are estimates and may change.</footer>
+  </main>
+</body>
+</html>
